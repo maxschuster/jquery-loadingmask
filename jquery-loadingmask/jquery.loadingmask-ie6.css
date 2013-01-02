@@ -1,0 +1,11 @@
+/*
+    Fix 100% height and width problems in Internet Explorer 6
+*/
+.loadingmask-mask {
+    width: expression($(this.parentNode).innerWidth() + 'px');
+    height: expression($(this.parentNode).innerHeight() + 'px');
+}
+
+.loadingmask-msg {
+    height: 16px;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery-loadingmask/jquery.loadingmask.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="jquery-loadingmask/jquery.loadingmask.css" />
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="jquery-loadingmask/jquery.loadingmask-ie6.css" />
+        <![endif]-->
+        <style type="text/css">
+            .userdata {
+                width: 300px;
+            }
+            legend {
+                background: #fff;
+            }
+            .userdata, fieldset, legend {
+                border: 3px solid #f00;
+                border-radius: 5px;
+                padding: 5px;
+            }
+            .userdata label, .userdata input {
+                display: block;
+                width: 95%;
+                margin: 0 auto;
+            }
+            fieldset {
+                float: left;
+            }
+            textarea#eventLog {
+                width: 300px;
+                height: 150px;
+            }
+        </style>
+        <script type="text/javascript">
+            $(function(){
+                $('#eventLog').val('');
+                $('.userdata').loadingmask({
+                    message: $('<span class="jquery-element">Waiting</span>')
+                }).on('show.loadingmask hide.loadingmask destroy.loadingmask', function(e){
+                    var t = $('#eventLog');
+                    t.val(t.val() + e.type + '\n');
+                });
+                $('#show, #hide, #destroy').click(function(){
+                    $('.userdata').loadingmask($(this).attr('id'));
+                });
+                $('#newTextApply').click(function(){
+                    $('.userdata').loadingmask('option','message',$('#newText').val());
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="userdata">
+            <div>
+                <label for="userdata_name">Name:</label>
+                <input id="userdata_name" type="text" />
+            </div>
+            <div>
+                <label for="userdata_pw">Password:</label>
+                <input id="userdata_pw" type="password" />
+            </div>
+        </div>
+        <div>
+            <input type="button" value="show" id="show" />
+            <input type="button" value="hide" id="hide" />
+            <input type="button" value="destroy" id="destroy" />
+        </div>
+        <div>
+            <label for="newText">New loading text:</label>
+            <input type="text" value="" id="newText" />
+            <input type="button" value="Apply" id="newTextApply" />
+        </div>
+        <fieldset>
+            <legend>Event Log</legend>
+            <textarea id="eventLog" readonly="readonly"></textarea>
+        </fieldset>
+    </body>
+</html>

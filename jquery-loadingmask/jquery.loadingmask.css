@@ -1,0 +1,42 @@
+.loadingmask {
+    position: relative;
+}
+
+.loadingmask-mask {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    opacity: .50;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity=50);
+    cursor: progress;
+}
+
+.loadingmask-anchor {
+    display: none;
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: visible;
+    top: 50%;
+    left: 50%;
+    background: none;
+    cursor: progress;
+}
+
+.loadingmask-msg {
+    position: absolute;
+    background: url('img/ajax-loader.gif') #fff no-repeat;
+    background-position: 5px 5px;
+    border: 1px solid dodgerblue;
+    padding: 5px 5px 5px 25px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    white-space: nowrap;
+    min-height: 16px;
+}

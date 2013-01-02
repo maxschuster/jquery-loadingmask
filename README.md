@@ -17,7 +17,7 @@ $('selector').loadingmask('hide');
 // destroy mask
 $('selector').loadingmask('destroy');
 // set an option
-$('.userdata').loadingmask('option','message','Some new text...');
+$('selector').loadingmask('option','message','Some new text...');
 ```
 # Installation
 Include
